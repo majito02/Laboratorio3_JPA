@@ -1,0 +1,5 @@
+com\web\model\JPAUtil.class
+com\web\controller\ClienteBean.class
+com\web\dao\ClienteDAOImpl.class
+com\web\idao\IClienteDAO.class
+com\web\model\Cliente.class

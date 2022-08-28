@@ -1,0 +1,39 @@
+package com.web.dao;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+
+import com.web.idao.IClienteDAO;
+import com.web.model.Cliente;
+import com.web.model.JPAUtil;
+
+public class ClienteDAOImpl implements IClienteDAO{
+
+	EntityManager entity = JPAUtil.getEntityManagerFactory().createEntityManager();
+
+	@Override
+	public void guardar(Cliente cliente) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void editar(Cliente cliente) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void buscar(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Cliente> obtenerClientes() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}

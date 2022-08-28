@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<title>Plantilla Básica JSF</title>
+</h:head>
+<h:body>
+	<h2>
+		<h:outputText value="Crear un Cliente"></h:outputText>
+	</h2>
+	
+	<h:form>
+		<h:panelGrid>
+			<f:facet name="header">
+				<h:outputText value="Crear"></h:outputText>
+			</f:facet>
+			
+			<h:outputText value="Nombre"></h:outputText>
+			<h:inputText value="#{cliente.nombreusuario}"></h:inputText>
+			
+			<h:outputText value="Apellido"></h:outputText>
+			<h:inputText value="#{cliente.apellidousuario}"></h:inputText>
+			
+			<h:outputText value="Cédula"></h:outputText>
+			<h:inputText value="#{cliente.cedulausuario}"></h:inputText>
+			
+			<h:outputText value="Dirección"></h:outputText>
+			<h:inputText value="#{cliente.direccionusuario}"></h:inputText>
+			
+			<h:outputText value="Teléfono"></h:outputText>
+			<h:inputText value="#{cliente.telefonousuario}"></h:inputText>
+			
+			<h:outputText value="Correo"></h:outputText>
+			<h:inputText value="#{cliente.correousuario}"></h:inputText>
+			
+			<f:facet name="footer">
+				<h:commandButton action="#{clienteBean.actualizar(cliente)}" value="Registrar"></h:commandButton>
+			</f:facet>
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>
+
+
+

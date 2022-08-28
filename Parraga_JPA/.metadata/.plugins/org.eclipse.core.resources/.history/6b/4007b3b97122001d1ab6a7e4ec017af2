@@ -1,0 +1,42 @@
+package com.web.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+
+import com.web.model.Cliente;
+@ManagedBean (name = "clienteBean")
+@RequestScoped
+public class ClienteBean {
+	
+	public List <Cliente>obtenerClientes(){
+		List <Cliente> listaClientes = new ArrayList<>();
+		
+		Cliente c1 = new Cliente();
+		c1.setId_cli(1);
+		c1.setNombre_cli("Maria Jose");
+		c1.setApellido_cli("Parraga");
+		c1.setCedula_cli("2300323272");
+		
+		Cliente c2 = new Cliente();
+		c2.setId_cli(2);
+		c2.setNombre_cli("Elian");
+		c2.setApellido_cli("Gualpa");
+		c2.setCedula_cli("1710391713");
+		
+		Cliente c3 = new Cliente();
+		c3.setId_cli(3);
+		c3.setNombre_cli("Camila");
+		c3.setApellido_cli("Parraga");
+		c3.setCedula_cli("2300353571");
+		
+		listaClientes.add(c1);
+		listaClientes.add(c2);
+		listaClientes.add(c3);
+		
+		return listaClientes;
+	}
+
+}

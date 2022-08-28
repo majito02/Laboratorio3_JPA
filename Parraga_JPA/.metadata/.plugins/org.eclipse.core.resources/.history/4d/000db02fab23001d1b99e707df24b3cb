@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Link base de este contenido: https://github.com/elivarl/curso_java_web/blob/master/persistence2-1 -->
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+        http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+      version="2.1">
+      <!-- Crear una unidad de persistencia -->
+      <persistence-unit name="PERSISTENCE">
+          <description>Ejemplo CRUD básico con Hibernate JPA</description>
+          <provider>org.hibernate.jpa.hibernatePersistenceProvider</provider>
+          <properties>
+           <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
+           <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ejemplo?useLegacyDatetimeCode=false&amp;serverTimezone=UTC" />
+           <property name="javax.persistence.jdbc.user" value="root" />
+           <property name="javax.persistence.jdbc.password" value="huevos01" />
+           <!-- Las transformaciones de sql a jpql -->
+           <property name="hibernate.show.sql" value="true" />
+           <!-- Libreira para actualizar hibernate automaticamente -->
+           <property name="hibernate.hbm2dd.auto" value="update" />
+           <!-- Configurar el dialecto -->
+           <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+          </properties>
+      </persistence-unit>
+</persistence>
+
+
+      

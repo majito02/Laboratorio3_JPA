@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<title>Plantilla Básica JSF</title>
+</h:head>
+<h:body>
+	<h2>
+		<h:outputText value="Lista de Clientes"></h:outputText>
+	</h2>
+	<h:form>
+		<h:dataTable value="#{clienteBean.listaClientes}" var="cliente"
+			border="1">
+			<h:column>
+				<f:facet name="header">ID</f:facet>
+				<h:outputText value="#{cliente.idusuario}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Nombre</f:facet>
+				<h:outputText value="#{cliente.nombreusuario}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Apellido</f:facet>
+				<h:outputText value="#{cliente.apellidousuario}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Cédula</f:facet>
+				<h:outputText value="#{cliente.cedulausuario}"></h:outputText>
+			</h:column>
+
+			<!-- 	<h:column>
+			<f:facet name="header">Teléfono</f:facet>
+			<h:outputText value="#{cliente.telefonousuario}"></h:outputText>
+		</h:column> -->
+
+			<!-- 
+	
+		<h:column>
+			<f:facet name="header">Dirección</f:facet>
+			<h:outputText value="#{cliente.direccionusuario}"></h:outputText>
+		</h:column>
+	 -->
+			<!--	<h:column>
+			<f:facet name="header">Correo</f:facet>
+			<h:outputText value="#{cliente.correousuario}"></h:outputText>
+		</h:column>  -->
+
+
+
+			<h:column>
+				<f:facet name="header">Editar</f:facet>
+				<h:commandButton action="#{clienteBean.editar(cliente.idusuario)}"
+					value="Editar"></h:commandButton>
+			</h:column>
+			
+			
+			<h:column>
+				<f:facet name="header">Eliminar</f:facet>
+				<h:commandButton action="#{clienteBean.editar(cliente.idusuario)}"
+					value="Editar"></h:commandButton>
+			</h:column>
+
+		</h:dataTable>
+	</h:form>
+
+</h:body>
+</html>
+
+
+

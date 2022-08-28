@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<title>Plantilla Básica JSF</title>
+</h:head>
+<style>
+button.ui-button {
+	margin-right: .5rem;
+}
+
+body {
+	color: black;
+	background: linear-gradient(0deg, rgba(0,0,0,0.9360119047619048) 21%, rgba(0,56,57,1) 49%);
+
+	text-align: center;
+	font-family: sans-serif;
+	size: 11px;
+}
+
+#centro {
+	text-align: left;
+}
+
+.ui-panelgrid.showcase-text-align-center .ui-grid-responsive .ui-panelgrid-cell
+	{
+	text-align: center;
+}
+
+.customPanelGrid .ui-panelgrid-content {
+	align-items: center;
+}
+
+#centro {
+	text-align: center;
+	position: absolute;
+	left: 590px;
+	
+}
+
+h2 {
+	text-align: center;
+}
+</style>
+
+<h:body style="text-align:left">
+	<h2>
+		<h:outputText value="EDITAR CLIENTE"></h:outputText>
+	</h2>
+	<div id="centro">
+		<h:form>
+			<h:panelGrid
+				style="border:0px none; background-color:transparent; text-align:center;"
+				styleClass="showcase-text-align-center">
+				<f:facet name="header">
+					<h:outputText value="EDITAR"></h:outputText>
+				</f:facet>
+
+				<h:outputText></h:outputText>
+				<p:inputText value="#{cliente.nombreusuario}"></p:inputText>
+
+				<h:outputText></h:outputText>
+				<p:inputText value="#{cliente.apellidousuario}"></p:inputText>
+
+				<h:outputText ></h:outputText>
+				<p:inputText value="#{cliente.cedulausuario}"></p:inputText>
+
+				<f:facet name="footer">
+					<p:commandButton action="#{clienteBean.actualizar(cliente)}"
+						value="Actualizar"
+						styleClass="rounded-button ui-button-actualizar"></p:commandButton>
+				</f:facet>
+			</h:panelGrid>
+		</h:form>
+	</div>
+</h:body>
+</html>

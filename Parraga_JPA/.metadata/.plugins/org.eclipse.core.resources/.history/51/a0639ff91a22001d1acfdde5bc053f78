@@ -1,0 +1,17 @@
+package com.web.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.faces.bean.RequestScoped;
+@ManageBean (name = "clienteBean")
+@RequestScoped
+public class ClienteBean {
+	
+	
+	public List <Cliente>obtenerCliente (){
+		List <Cliente> listaClientes = new ArrayList<>();
+		
+	}
+
+}

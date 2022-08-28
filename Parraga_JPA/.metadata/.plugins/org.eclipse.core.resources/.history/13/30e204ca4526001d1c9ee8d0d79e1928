@@ -1,0 +1,184 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<title>Plantilla Básica JSF</title>
+</h:head>
+<h:body>
+	<h2>
+		<h:outputText value="Lista de Clientes"></h:outputText>
+	</h2>
+
+	<h:form>
+		
+	<h:commandButton action="#{clienteBean.nuevo()}" value= "Nuevo"></h:commandButton>
+	
+		<h:dataTable value="#{clienteBean.listaClientes}" var="cliente"
+			border="1">
+			<h:column>
+				<f:facet name="header">ID</f:facet>
+				<h:outputText value="#{cliente.idusuario}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Nombre</f:facet>
+				<h:outputText value="#{cliente.nombreusuario}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Apellido</f:facet>
+				<h:outputText value="#{cliente.apellidousuario}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Cédula</f:facet>
+				<h:outputText value="#{cliente.cedulausuario}"></h:outputText>
+			</h:column>
+
+
+
+
+			<!-- 	<h:column>
+			<f:facet name="header">Teléfono</f:facet>
+			<h:outputText value="#{cliente.telefonousuario}"></h:outputText>
+		</h:column> -->
+
+			<!-- 
+	
+		<h:column>
+			<f:facet name="header">Dirección</f:facet>
+			<h:outputText value="#{cliente.direccionusuario}"></h:outputText>
+		</h:column>
+	 -->
+			<!--	<h:column>
+			<f:facet name="header">Correo</f:facet>
+			<h:outputText value="#{cliente.correousuario}"></h:outputText>
+		</h:column>  -->
+
+
+
+			<h:column>
+				<f:facet name="header">Editar</f:facet>
+				<h:commandButton action="#{clienteBean.editar(cliente.idusuario)}"
+					value="Editar"></h:commandButton>
+			</h:column>
+			
+			
+			<h:column>
+				<f:facet name="header">Eliminar</f:facet>
+				<h:commandButton action="#{clienteBean.eliminar(cliente.idusuario)}"
+					value="Eliminar"></h:commandButton>
+			</h:column>
+
+		</h:dataTable>
+	</h:form>
+
+</h:body>
+
+<div class="card">
+    <h:form>
+        <div class="flex justify-content-between">
+            <div>
+                <h5>Standard</h5>
+                <p:commandButton value="XLS" styleClass="mr-2 mb-2">
+                    <p:dataExporter type="xls" target="tbl" fileName="products"/>
+                </p:commandButton>
+
+                <p:commandButton value="XLSX" styleClass="mr-2 mb-2">
+                    <p:dataExporter type="xlsxstream" target="tbl" fileName="products"/>
+                </p:commandButton>
+
+                <p:commandButton value="PDF" styleClass="mr-2 mb-2">
+                    <p:dataExporter type="pdf" target="tbl" fileName="products"/>
+                </p:commandButton>
+
+                <p:commandButton value="CSV" styleClass="mr-2 mb-2">
+                    <p:dataExporter type="csv" target="tbl" fileName="products" />
+                </p:commandButton>
+
+                <p:commandButton value="XML" styleClass="mr-2 mb-2">
+                    <p:dataExporter type="xml" target="tbl" fileName="products"/>
+                </p:commandButton>
+
+                <p:commandButton value="TXT" styleClass="mr-2 mb-2">
+                    <p:dataExporter type="txt" target="tbl" fileName="products" exporter="#{dataExporterView.textExporter}"/>
+                </p:commandButton>
+            </div>
+
+            <div>
+                <h5>Page Only</h5>
+                <p:commandButton value="XLS" styleClass="mr-2 mb-2 ui-button-outlined">
+                    <p:dataExporter type="xls" target="tbl" fileName="products" pageOnly="true"/>
+                </p:commandButton>
+
+                <p:commandButton value="XLSX" styleClass="mr-2 mb-2 ui-button-outlined">
+                    <p:dataExporter type="xlsxstream" target="tbl" fileName="products" pageOnly="true"/>
+                </p:commandButton>
+
+                <p:commandButton value="PDF" styleClass="mr-2 mb-2 ui-button-outlined">
+                    <p:dataExporter type="pdf" target="tbl" fileName="products" pageOnly="true"/>
+                </p:commandButton>
+
+                <p:commandButton value="CSV" styleClass="mr-2 mb-2 ui-button-outlined">
+                    <p:dataExporter type="csv" target="tbl" fileName="products" pageOnly="true"/>
+                </p:commandButton>
+
+                <p:commandButton value="XML" styleClass="mr-2 mb-2 ui-button-outlined">
+                    <p:dataExporter type="xml" target="tbl" fileName="products" pageOnly="true"/>
+                </p:commandButton>
+
+                <p:commandButton value="TXT" styleClass="mr-2 mb-2 ui-button-outlined">
+                    <p:dataExporter type="txt" target="tbl" fileName="products" pageOnly="true"
+                                    exporter="#{dataExporterView.textExporter}"/>
+                </p:commandButton>
+            </div>
+        </div>
+
+        <p:dataTable id="tbl" var="product" value="#{dataExporterView.products}"
+                     paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+                     paginator="true" rows="10" styleClass="mt-2">
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="Code"/>
+                </f:facet>
+                <h:outputText value="#{product.code}"/>
+            </p:column>
+
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="Name"/>
+                </f:facet>
+                <h:outputText value="#{product.name}"/>
+            </p:column>
+
+            <p:column  styleClass="text-center">
+                <f:facet name="header">
+                    <h:outputText value="Category"/>
+                </f:facet>
+                <h:outputText value="#{product.category}"/>
+            </p:column>
+
+            <p:column styleClass="text-right">
+                <f:facet name="header">
+                    <h:outputText value="Quantity"/>
+                </f:facet>
+                <h:outputText value="#{product.quantity}"/>
+            </p:column>
+
+            <p:column styleClass="text-right">
+                <f:facet name="header">
+                    <h:outputText value="Price"/>
+                </f:facet>
+                <h:outputText value="#{product.price}">
+                    <f:convertNumber type="currency" />
+                </h:outputText>
+            </p:column>
+        </p:dataTable>
+    </h:form>
+</div>
+</html>
+
+
+

@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<title>Plantilla Básica JSF</title>
+</h:head>
+<h:body>
+	<h2>
+		<h:outputText value="Editar Cliente"></h:outputText>
+	</h2>
+	
+	<h:form>
+		<h:panelGrid>
+			<f:facet name="header">
+				<h:outputText value="Editar"></h:outputText>
+			</f:facet>
+			
+			<div class="grid ui-fluid">
+            <div class="col-12 md:col-4">
+                <div class="ui-inputgroup">
+                    <div class="ui-inputgroup-addon"><i class="pi pi-user"></i></div>
+                    <p:inputText placeholder="Username"/>
+                </div>
+            </div>
+             </div>
+			
+			<h:outputText value="Nombre"></h:outputText>
+			<h:inputText value="#{cliente.nombreusuario}"></h:inputText>
+			
+			<h:outputText value="Apellido"></h:outputText>
+			<h:inputText value="#{cliente.apellidousuario}"></h:inputText>
+			
+			<h:outputText value="Cédula"></h:outputText>
+			<h:inputText value="#{cliente.cedulausuario}"></h:inputText>
+			
+			<f:facet name="footer">
+				<h:commandButton action="#{clienteBean.actualizar(cliente)}" value="Actualizar"></h:commandButton>
+			</f:facet>
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>
+
+
+
+
+

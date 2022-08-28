@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<title>Plantilla Básica JSF</title>
+</h:head>
+<style>
+button.ui-button {
+	margin-right: .5rem;
+	font-family: "Cooper Black"
+}
+
+body {
+	color: white;
+	font-family: "Cooper Black";
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.9360119047619048) 21%,
+		rgba(0, 56, 57, 1) 49%);
+	text-align: center;
+}
+
+#centro {
+	text-align: left;
+}
+
+#separar {
+	width: 50px;
+	padding: 50px;
+}
+</style>
+
+
+<h:body id="pincipal">
+	<h2>
+		<h:outputText value="LISTA DE CLIENTES"></h:outputText>
+	</h2>
+	<h:form>
+		<p:commandButton action="#{clienteBean.nuevo()}" value="Nuevo Cliente"
+			styleClass="rounded-button ui-button-nuevocliente"></p:commandButton>
+		<br/><br/>
+		<p:dataTable value="#{clienteBean.listaClientes}" var="cliente"
+			border="1" >
+			<p:column>
+				<f:facet name="header">ID</f:facet>
+				<h:outputText value="#{cliente.idusuario}"></h:outputText>
+			</p:column>
+			<p:column>
+				<f:facet name="header">Nombre</f:facet>
+				<h:outputText value="#{cliente.nombreusuario}"></h:outputText>
+			</p:column>
+			<p:column>
+				<f:facet name="header">Apellido</f:facet>
+				<h:outputText value="#{cliente.apellidousuario}"></h:outputText>
+			</p:column>
+			<p:column>
+				<f:facet name="header">Cédula</f:facet>
+				<h:outputText value="#{cliente.cedulausuario}"></h:outputText>
+			</p:column>
+			<p:column>
+				<f:facet name="header"></f:facet>
+				<p:commandButton action="#{clienteBean.editar(cliente.idusuario)}"
+					value="Editar" styleClass="rounded-button ui-button-editar"></p:commandButton>
+			</p:column>
+			<p:column>
+				<f:facet name="header"></f:facet>
+				<p:commandButton action="#{clienteBean.eliminar(cliente.idusuario)}"
+					value="Eliminar" styleClass="rounded-button ui-button-danger"></p:commandButton>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+</h:body>
+</html>

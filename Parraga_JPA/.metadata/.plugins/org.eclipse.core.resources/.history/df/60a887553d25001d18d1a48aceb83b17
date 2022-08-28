@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<title>Plantilla Básica JSF</title>
+</h:head>
+<h:body>
+	<h2>
+		<h:outputText value="Crear un cliente"></h:outputText>
+	</h2>
+	<h:form>
+		<h:panelGrid>
+			<f:facet name="header">
+				<h:outputText value="Crear"></h:outputText>
+			</f:facet>
+
+			<h:outputText value="Nombre"></h:outputText>
+			<h:inputText value="#{cliente.nombreusuario}"></h:inputText>
+
+
+			<h:outputText value="Apellido"></h:outputText>
+			<h:inputText value="#{cliente.apellidousuario}"></h:inputText>
+
+
+			<h:outputText value="Cedula"></h:outputText>
+			<h:inputText value="#{cliente.cedulausuario}"></h:inputText>
+
+			<h:column>
+				<f:facet name="header">Dirección</f:facet>
+				<h:outputText value="#{cliente.direccionusuario}"></h:outputText>
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Teléfono</f:facet>
+				<h:outputText value="#{cliente.telefonousuario}"></h:outputText>
+			</h:column>
+
+
+
+			<h:column>
+				<f:facet name="header">Correo</f:facet>
+				<h:outputText value="#{cliente.correousuario}"></h:outputText>
+			</h:column>
+
+
+
+			<f:facet name="footer">
+                <h:commandButton
+					action="#{clienteBean.guardar(cliente)}" value="Guardar"></h:commandButton>
+            </f:facet>}
+<f:facet name="footer">
+                <h:commandButton
+					action="#{clienteBean.guardar(cliente)}" value="Guardar"></h:commandButton>
+            </f:facet>
+
+
+		</h:panelGrid>
+
+
+	</h:form>
+</h:body>
+</html>
+
+
+
